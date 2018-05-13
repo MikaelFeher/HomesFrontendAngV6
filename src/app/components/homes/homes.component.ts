@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-homes',
@@ -10,15 +9,20 @@ import { map } from 'rxjs/operators';
 
 export class HomesComponent implements OnInit {
   homes : {}
-
+ 
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
+    setInterval(() => {
+      this.getHomes();
+    },3000);
+  }
+
+  getHomes() {
     this.dataService.getHomes()
-      .subscribe(data => {
-        this.homes = data;
-        console.log('this.homes: ', this.homes)
-      });
+    .subscribe(data => {
+      this.homes = data;
+    });
   }
 }
 
