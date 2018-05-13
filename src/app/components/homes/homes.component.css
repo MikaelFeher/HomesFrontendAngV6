@@ -1,0 +1,21 @@
+#main_content {
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#list {
+    margin: 1% auto;
+    box-shadow: 0 0 15px 0 #333;
+    padding: 2%;
+    min-width: 33%;
+    max-width: 33%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+#list h1 {
+    text-transform: capitalize;
+    text-align: center;
+}

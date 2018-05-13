@@ -1,6 +1,6 @@
 <div id="main_content">
-  <ul id="list"  ng-click="getHouseById(key)">
-      <li *ngFor="let home of homes">
+  <ul id="list" *ngFor="let home of homes" (click)="getHouseById(home.id)">
+      <li>
           <h1>{{ home.id }}</h1>
           <ul *ngFor="let room of home.rooms">
               <li>

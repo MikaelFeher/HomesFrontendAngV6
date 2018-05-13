@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homes',
@@ -10,9 +11,11 @@ import { DataService } from '../../services/data.service';
 export class HomesComponent implements OnInit {
   homes : {}
  
-  constructor(private dataService:DataService) { }
+  constructor(private dataService:DataService, private router:Router) { }
 
   ngOnInit() {
+    this.getHomes();
+
     setInterval(() => {
       this.getHomes();
     },3000);
@@ -23,6 +26,10 @@ export class HomesComponent implements OnInit {
     .subscribe(data => {
       this.homes = data;
     });
+  }
+
+  getHouseById(id) {
+    this.router.navigateByUrl(`homes/${id}`);
   }
 }
 

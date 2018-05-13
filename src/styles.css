@@ -5,3 +5,20 @@ body {
     background-size: cover;
     font-family: 'Lato', sans-serif;
 }
+
+#app {
+    height: 75%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 1%;
+    text-align: center;
+}
+
+
