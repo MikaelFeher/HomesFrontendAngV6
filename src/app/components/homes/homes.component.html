@@ -1,0 +1,17 @@
+<div id="main_content">
+  <ul id="list"  ng-click="getHouseById(key)">
+      <li *ngFor="let home of homes">
+          <h1>{{ home.id }}</h1>
+          <ul *ngFor="let room of home.rooms">
+              <li>
+                  <h3 class="room_name">{{ room.name }}</h3>
+                  <ul>
+                      <li>Temperatur: {{ room.temperature }}&#8451;</li>
+                      <li>Luftfuktighet: {{ room.humidity }}&#37;</li>
+                  </ul>
+                  <hr>
+              </li>
+          </ul>
+      </li>
+  </ul>
+</div>
