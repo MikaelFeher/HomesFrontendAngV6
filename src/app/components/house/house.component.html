@@ -1,0 +1,18 @@
+<div id="main_content_single_house">
+  <a id="home_link" href="/">Hem</a>
+  <div *ngIf="!house">
+    <h1>Datan du sökte finns ej!</h1>
+  </div>
+  <div *ngIf="house">
+    <h1>{{ house.id }}</h1>
+    <ul id="list_single_house" *ngFor="let room of house.rooms">
+      <li>
+        <h3 class="room_name">{{ room.name }}</h3>
+        <ul>
+          <li>Temperatur: {{ room.temperature }}&#8451;</li>
+          <li>Luftfuktighet: {{ room.humidity }}&#37;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

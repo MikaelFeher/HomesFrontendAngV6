@@ -14,4 +14,7 @@ export class DataService {
     return this.http.get('//localhost:3000/homes');
   }
 
+  getHouseById(id) {
+    return this.http.get(`//localhost:3000/homes/${id}/data`);
+  }
 }
