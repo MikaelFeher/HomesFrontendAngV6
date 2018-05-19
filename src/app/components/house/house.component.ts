@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class HouseComponent implements OnInit {
   id: String;
   house: {};
+  interval: any;
+  
   constructor(private dataService:DataService, private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,9 +21,13 @@ export class HouseComponent implements OnInit {
 
     this.getHouseById(this.id);
 
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.getHouseById(this.id);
     },3000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
   getHouseById(id) {
@@ -30,4 +36,5 @@ export class HouseComponent implements OnInit {
       this.house = data;
     });
   }
+
 }

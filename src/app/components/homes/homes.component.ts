@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 
@@ -10,15 +10,20 @@ import { Router } from '@angular/router';
 
 export class HomesComponent implements OnInit {
   homes : {}
+  interval: any;
  
   constructor(private dataService:DataService, private router:Router) { }
 
   ngOnInit() {
     this.getHomes();
 
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.getHomes();
     },3000);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
   getHomes() {
