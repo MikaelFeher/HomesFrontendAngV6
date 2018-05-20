@@ -29,7 +29,7 @@ export class HomesComponent implements OnInit {
   getHomes() {
     this.dataService.getHomes()
     .subscribe(data => {
-      this.homes = data;
+      this.homes = data.homes;
     });
   }
 

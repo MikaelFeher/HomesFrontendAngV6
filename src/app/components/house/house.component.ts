@@ -11,7 +11,7 @@ export class HouseComponent implements OnInit {
   id: String;
   house: {};
   interval: any;
-  
+
   constructor(private dataService:DataService, private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -33,7 +33,7 @@ export class HouseComponent implements OnInit {
   getHouseById(id) {
     this.dataService.getHouseById(id)
     .subscribe(data => {
-      this.house = data;
+      this.house = data.house;
     });
   }
 
