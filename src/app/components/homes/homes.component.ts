@@ -29,7 +29,10 @@ export class HomesComponent implements OnInit {
   getHomes() {
     this.dataService.getHomes()
     .subscribe(data => {
-      this.homes = data.homes;
+      this.homes = [data];
+      this.homes = this.homes[0].homes;
+      console.log(this.homes);
+      
     });
   }
 

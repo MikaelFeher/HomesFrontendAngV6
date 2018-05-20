@@ -33,8 +33,8 @@ export class HouseComponent implements OnInit {
   getHouseById(id) {
     this.dataService.getHouseById(id)
     .subscribe(data => {
-      this.house = data.house;
+      this.house = [data];
+      this.house = this.house[0].house;
     });
   }
-
 }
